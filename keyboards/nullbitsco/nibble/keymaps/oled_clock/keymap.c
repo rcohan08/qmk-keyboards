@@ -72,12 +72,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 #ifdef OLED_ENABLE
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    oled_timer = timer_read32();
-    set_oled_mode(OLED_MODE_IDLE);
-    return OLED_ROTATION_180;
-}
-
 bool oled_task_user(void) {
     if (timer_elapsed(oled_timer) >= 3000) {
         set_oled_mode(OLED_MODE_IDLE);
